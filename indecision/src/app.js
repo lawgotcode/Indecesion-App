@@ -3,7 +3,7 @@ console.log('App.js is running!');
 
 var app = {
 	title: 'Death Row Records',
-	subtitle: 'Los Angeles'
+	subtitle: 'Chicago'
 };
 var template = (
 <div>
