@@ -19,16 +19,19 @@ var template = (
  
 
 
-var userName = 'Tupac';
-var userAge = 28
-var userLocation = 'Italy'
+var user = {
+  name: 'Tupac',
+  age: 28,
+  Location: 'Chicago'
+ };
 var templateTwo = (
 	<div>
-	  <h1>{userName.toUpperCase()}</h1>
-	  <p>Age: {userAge}</p>
-	  <p>Location: {userLocation}</p>
+	  <h1>{user.name}</h1>
+	  <p>Age: {user.age}</p>
+	  <p>Location: {user.location}</p>
 	 </div>
 	);
+
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
