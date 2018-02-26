@@ -1,14 +1,16 @@
 console.log('App.js is running!');
 
 
-var app = {
+const app = {
 	title: 'Death Row Records',
-	subtitle: 'Chicago'
+	subtitle: 'Chicago is the best city in the world',
+	options: ['One', 'Two']
 };
-var template = (
+const template = (
 <div>
  <h1>{app.title}</h1>
- <p>{app.subtitle}</p>
+ {app.subtitle && <p>{app.subtitle}</p>}
+ <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
  <ol>
   <li>Item one</li>
   <li>Item two</li>
@@ -17,9 +19,10 @@ var template = (
 );
 
 
-var user = {
+const user = {
   
-  age: 17,
+  name: 'Lawrence',
+  age: 28,
   location: 'Accra'
    };
 
@@ -30,7 +33,7 @@ var user = {
     }
  }
 
-var templateTwo = (
+const templateTwo = (
 	<div>
 	  <h1>{user.name ? user.name : 'Anonymous'}</h1>
 	  {user.age >= 18 && <p>Age: {user.age}</p>}
@@ -38,6 +41,6 @@ var templateTwo = (
 	 </div>
 	);
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);

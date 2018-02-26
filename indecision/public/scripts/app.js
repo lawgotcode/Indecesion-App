@@ -4,7 +4,8 @@ console.log('App.js is running!');
 
 var app = {
   title: 'Death Row Records',
-  subtitle: 'Chicago'
+  subtitle: 'Chicago is the best city in the world',
+  options: ['One', 'Two']
 };
 var template = React.createElement(
   'div',
@@ -14,10 +15,15 @@ var template = React.createElement(
     null,
     app.title
   ),
-  React.createElement(
+  app.subtitle && React.createElement(
     'p',
     null,
     app.subtitle
+  ),
+  React.createElement(
+    'p',
+    null,
+    app.options.length > 0 ? 'Here are your options' : 'No options'
   ),
   React.createElement(
     'ol',
@@ -37,7 +43,8 @@ var template = React.createElement(
 
 var user = {
 
-  age: 17,
+  name: 'Lawrence',
+  age: 28,
   location: 'Accra'
 };
 
@@ -71,4 +78,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
