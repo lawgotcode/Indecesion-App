@@ -51,7 +51,7 @@ const render = () => {
  </ol>
  <form onSubmit={onFormSubmit}>
   <input type="text" name="option"/>
-   <button>Add options</button>
+   <button>Hello</button>
  </form>
 </div>
 );
