@@ -2,12 +2,12 @@
  	render() {
  		const title = 'Indecision';
  		const subtitle = 'Put your life in the hands of a computer';
-
+        const options = ['Thing one', 'Thing two', 'Thing four'];
  		return (
  		 <div>
  		  <Header title={title} subtitle={subtitle} />
  		  <Action />
- 		  <Options />
+ 		  <Options options={options} />
  		  <AddOptions />
  		 </div>
  		);
@@ -41,8 +41,9 @@
  	render() {
  		return (
  		 <div>
- 		  <p>You have the choice to use these options</p>
- 		 <Option></Option>
+ 		 {
+ 		  this.props.options.map((option) => <Option key={option} optionText={option} />)
+ 		 }
  		 </div>
 
  		);
@@ -53,7 +54,7 @@
  	render() {
  		return (
  		 <div>
- 		  Option Component here
+ 		  {this.props.optionText}
  		 </div>
  		);
  	}
