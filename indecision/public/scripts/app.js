@@ -41,7 +41,7 @@ var VisibilityToggle = function (_React$Component) {
 				React.createElement(
 					'h1',
 					null,
-					'Visibility Toggle'
+					'Visibility Toggleee'
 				),
 				React.createElement(
 					'button',
