@@ -3,8 +3,9 @@
  		super(props);
  		this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
  		this.handlePick = this.handlePick.bind(this);
+ 		this.handleAddOption = this.handleAddOption.bind(this);
  		this.state = {
- 			options: ['Thing one', 'Thing two', 'Thing four']
+ 			options: []
  		};
  	}
 
@@ -23,6 +24,21 @@
  		alert(option);
  	}
 
+ 	handleAddOption(option) {
+ 		if (!option) {
+            return 'Enter valid value to add item';
+ 		} else if (this.state.options.indexOf(option) > -1) {
+             return 'this option already exists';
+ 		}
+
+ 		
+ 		this.setState((prevState) => {
+ 			return {
+ 				options: prevState.options.concat(option)
+ 			};
+ 			});
+ 	}
+
  	render() {
  		const title = 'Indecision';
  		const subtitle = 'Put your life in the hands of a computer';
@@ -39,7 +55,9 @@
  		  options={this.state.options}
  		  handleDeleteOptions={this.handleDeleteOptions} 
  		  />
- 		  <AddOptions />
+ 		  <AddOption
+ 		  handleAddOption={this.handleAddOption} 
+ 		  />
  		 </div>
  		);
  	}
@@ -64,7 +82,7 @@
  		return (
  		 <div>
  		  <button onClick={this.props.handlePick}
- 		  disable={!this.props.hasOptions}
+ 		  disabled={!this.props.hasOptions}
  		  >
  		  What should I do
  		  </button>
@@ -98,19 +116,29 @@
  	}
  }
 
- class AddOptions extends React.Component {
+ class AddOption extends React.Component {
+ 	constructor(props) {
+ 		super(props);
+ 		this.handleAddOption = this.handleAddOption.bind(this);
+ 		this.state = {
+ 			error: undefined
+ 		};
+ 	}
  	 handleAddOption(e) {
  	 	e.preventDefault();
 
  	 	const option = e.target.elements.option.value.trim();
+        const error = this.props.handleAddOption(option);
 
- 	 	if (option) {
- 	 		alert(option);
- 	 	}
- 	 }
+        this.setState(() => {
+        	return { error };
+         });
+        }
+ 	 	 	 
  	render() {
  		return (
  		 <div>
+ 		 {this.state.error && <p>{this.state.error}</p>}
  		 <form onSubmit={this.handleAddOption}>
  		  
  		   <input type="text" name="option" />
@@ -125,4 +153,5 @@
 
 
 
- ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+ ReactDOM.render(<IndecisionApp />, document.getElementById('app'));        	}
+        	}
