@@ -37,7 +37,7 @@
  				options: prevState.options.concat(option)
  			};
  			});
- 	}
+ 	      }
 
  	render() {
  		const title = 'Indecision';
@@ -153,5 +153,5 @@
 
 
 
- ReactDOM.render(<IndecisionApp />, document.getElementById('app'));        	}
-        	}
+ ReactDOM.render(<IndecisionApp />, document.getElementById('app'));        	
+        	
