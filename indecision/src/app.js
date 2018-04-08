@@ -5,7 +5,7 @@
  		this.handlePick = this.handlePick.bind(this);
  		this.handleAddOption = this.handleAddOption.bind(this);
  		this.state = {
- 			options: []
+ 			options: props.options
  		};
  	}
 
@@ -40,13 +40,13 @@
  	      }
 
  	render() {
- 		const title = 'Indecision';
+ 		
  		const subtitle = 'Put your life in the hands of a computer';
         
  		
  		return (
  		 <div>
- 		  <Header title={title} subtitle={subtitle} />
+ 		  <Header subtitle={subtitle} />
  		  <Action 
  		  hasOptions={this.state.options.length > 0} 
           handlePick={this.handlePick}
@@ -63,27 +63,25 @@
  	}
  }
 
+ IndecisionApp.defaultProps = {
+ 	options: []
+ }
+
  const Header = (props) => {
  	return (
  	  <div>
      		 <h1>{props.title}</h1>
-     		 <h2>{props.subtitle}</h2>
+     		 {props.subtitle && <h2>{props.subtitle}</h2>}
      		</div>
      		);
  };
 
+Header.defaultProps = {
+	title: 'Indecision'
+};
 
 
- //class Header extends React.Component {
- //    render() {
-  //   	return (
-  //   		<div>
-  //   		 <h1>{this.props.title}</h1>
-   //  		 <h2>{this.props.subtitle}</h2>
-  //   		</div>
-  //   		);
-  //   }
- // }
+
 
  const Action = (props) => {
  	return (
@@ -182,5 +180,5 @@
 // };
 
 
- ReactDOM.render(<IndecisionApp />, document.getElementById('app'));        	
+ ReactDOM.render(<IndecisionApp options={['Chicago', 'Los Angeles']}/>, document.getElementById('app'));        	
         	
