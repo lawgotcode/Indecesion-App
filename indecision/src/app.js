@@ -10,13 +10,8 @@
  	}
 
  	handleDeleteOptions() {
- 		this.setState(() => {
- 			return {
- 				options: []
- 			};
- 		});
- 	}
-
+ 		this.setState(() => ({ options: [] }));
+        }
  	handlePick() {
  		alert('test');
  		const randoNum = Math.floor(Math.random() * this.state.options.length);
@@ -31,15 +26,13 @@
              return 'this option already exists';
  		}
 
+ 		this.setState((prevState) => ({
+            options: prevState.options.concat(option)
+        }));
  		
- 		this.setState((prevState) => {
- 			return {
- 				options: prevState.options.concat(option)
- 			};
- 			});
- 	      }
+       
 
- 	render() {
+ 	render() 
  		
  		const subtitle = 'Put your life in the hands of a computer';
         
@@ -151,10 +144,9 @@ Header.defaultProps = {
         const error = this.props.handleAddOption(option);
 
         this.setState(() => {
-        	return { error };
+            return { error };
          });
-        }
- 	 	 	 
+        } 	 
  	render() {
  		return (
  		 <div>
