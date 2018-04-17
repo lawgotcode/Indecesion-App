@@ -29,10 +29,10 @@
  		this.setState((prevState) => ({
             options: prevState.options.concat(option)
         }));
- 		
+ 	}
        
 
- 	render() 
+ 	render() {
  		
  		const subtitle = 'Put your life in the hands of a computer';
         

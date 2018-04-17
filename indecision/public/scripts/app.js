@@ -54,8 +54,10 @@ var IndecisionApp = function (_React$Component) {
           options: prevState.options.concat(option)
         };
       });
-
-      render();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
 
       var subtitle = 'Put your life in the hands of a computer';
 
